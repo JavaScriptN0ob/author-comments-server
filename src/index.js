@@ -6,6 +6,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 /* 
 Below codes are replaced by npm cors library, thanks to npm & cors
 */
@@ -17,8 +22,10 @@ Below codes are replaced by npm cors library, thanks to npm & cors
 //   next();
 // })
 //---------------------------------------------------------------------
+
 app.use(routes);
-// app.use('/v1', routes);
+app.use('/v1', routes);
+
 /* 
 Below codes had been separated into individual components:
 controllers, middlewares, models, routes.
