@@ -38,7 +38,7 @@ function getPostIndexById(idInput) {
 
 function updatePostById(idInput, updatePost) {
   const postIndex = getPostIndexById(idInput);
-  const userUpdatePost = {...updatePost, idInput};
+  const userUpdatePost = {...updatePost, id: idInput};
   post[postIndex] = userUpdatePost;
   return userUpdatePost;
 }
