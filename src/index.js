@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const routes = require('./routes.js');
@@ -17,7 +18,7 @@ Below codes are replaced by npm cors library, thanks to npm & cors
 // })
 //---------------------------------------------------------------------
 app.use(routes);
-
+// app.use('/v1', routes);
 /* 
 Below codes had been separated into individual components:
 controllers, middlewares, models, routes.
@@ -74,6 +75,8 @@ for a better maintenance, readable, variable pollution avoiding.
 // })
 //---------------------------------------------------------------------
 
-app.listen('3000', () => {
-  console.log('------- Captain Teemo on duty 000 -------')
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`------- Captain Teemo on duty ${PORT} -------`)
 })
