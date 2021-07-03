@@ -21,4 +21,4 @@
 
 
 [jump](#1234)
-[jump2](#author&comments-server)
+[jump2](#author)
